@@ -8,7 +8,7 @@ load_dotenv()
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 # Configuración de página con temática futbolera
-st.set_page_config(page_title="VAR Chatbot", page_icon="⚽")
+st.set_page_config(page_title="Mundial Chatbot", page_icon="⚽")
 
 st.markdown("""
     <style>
