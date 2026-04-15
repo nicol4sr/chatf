@@ -17,8 +17,8 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("⚽ VAR Chatbot: Análisis Táctico")
-st.subheader("Consulta datos desde el archivo del vestuario")
+st.title("⚽ Mundial Chatbot: Informacion de los Mundiales")
+st.subheader("Consulta datos de los ganadores de los Mundiales")
 
 # Función para leer el archivo txt local
 def leer_contexto():
