@@ -47,13 +47,13 @@ if prompt := st.chat_input("¿Qué quieres saber sobre el partido?"):
     with st.chat_message("assistant"):
         # Construcción del Prompt con el contenido del TXT
         response = client.chat.completions.create(
-            messages=[
-                {"role": "system", "content": f"Eres un experto en fútbol. Responde usando esta información: {contexto}"},
-                {"role": "user", "content": prompt}
-            ],
-            model="llama-3.3-70b-versatile",
-        )
-        full_response = response.choices[0].message.content
-        st.markdown(full_response)
+    messages=[
+        {"role": "system", "content": f"Eres un experto. Solo responde usando este texto: {contexto}. Si no está ahí, di que no sabes."},
+        {"role": "user", "content": prompt}
+    ],
+    model="llama-3.3-70b-versatile",
+    temperature=0.1, # <--- Baja la temperatura para que sea menos "creativo" y más preciso
+    max_tokens=500
+)
     
     st.session_state.messages.append({"role": "assistant", "content": full_response})
