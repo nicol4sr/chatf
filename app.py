@@ -60,6 +60,10 @@ CONTEXTO:
                 {"role": "user", "content": prompt}
             ],
             model="llama-3.3-70b-versatile",
+    temperature=0.1, # <--- Baja la temperatura para que sea menos "creativo" y más preciso
+    max_tokens=500
+        )
+            
         )
         full_response = response.choices[0].message.content
         st.markdown(full_response)
