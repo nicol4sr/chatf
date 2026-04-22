@@ -48,22 +48,10 @@ if prompt := st.chat_input("¿Qué quieres saber sobre el partido?"):
         # Construcción del Prompt con el contenido del TXT
         response = client.chat.completions.create(
             messages=[
-                {"role": "system", "content": f"""
-Eres un asistente experto en la Copa del Mundo. 
-Tu REGLA DE ORO es: Responde UNICAMENTE basándote en la información proporcionada a continuación. 
-Si la respuesta no está en el contexto, di amablemente que no cuentas con esa información.
-No utilices tus propios conocimientos externos.
-
-CONTEXTO:
-{contexto}
-"""}
+                {"role": "system", "content": f"Eres un experto en fútbol. Responde usando esta información: {contexto}"},
                 {"role": "user", "content": prompt}
             ],
             model="llama-3.3-70b-versatile",
-    temperature=0.1, # <--- Baja la temperatura para que sea menos "creativo" y más preciso
-    max_tokens=500
-        )
-            
         )
         full_response = response.choices[0].message.content
         st.markdown(full_response)
